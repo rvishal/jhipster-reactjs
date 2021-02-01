@@ -7,14 +7,17 @@ import Customer from './customer';
 import CustomerDetail from './customer-detail';
 import CustomerUpdate from './customer-update';
 import CustomerDeleteDialog from './customer-delete-dialog';
+import CustomerShowUserByYears from './customer-show-user-by-years';
 
 const Routes = ({ match }) => (
   <>
     <Switch>
+    <ErrorBoundaryRoute exact path={`${match.url}/getUsersByYears`} component={CustomerShowUserByYears} />
       <ErrorBoundaryRoute exact path={`${match.url}/new`} component={CustomerUpdate} />
       <ErrorBoundaryRoute exact path={`${match.url}/:id/edit`} component={CustomerUpdate} />
       <ErrorBoundaryRoute exact path={`${match.url}/:id`} component={CustomerDetail} />
       <ErrorBoundaryRoute path={match.url} component={Customer} />
+      
     </Switch>
     <ErrorBoundaryRoute exact path={`${match.url}/:id/delete`} component={CustomerDeleteDialog} />
   </>

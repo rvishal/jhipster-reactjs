@@ -20,6 +20,7 @@ export const ACTION_TYPES = {
   UPDATE_CUSTOMER: 'customer/UPDATE_CUSTOMER',
   DELETE_CUSTOMER: 'customer/DELETE_CUSTOMER',
   RESET: 'customer/RESET',
+  SHOW_CUSTOMER: 'customer/SHOW_CUSTOMER'
 };
 
 const initialState = {
@@ -112,6 +113,15 @@ export default (state: CustomerState = initialState, action): CustomerState => {
 const apiUrl = 'api/customers';
 
 // Actions
+
+//	temp
+export const getUsersByYears = () => {
+  const requestUrl = `${apiUrl}/getUsersByYears`;
+  return {
+    type: ACTION_TYPES.SHOW_CUSTOMER,
+    payload: axios.get<ICustomer>(`${requestUrl}`),
+  };
+};
 
 export const getEntities: ICrudGetAllAction<ICustomer> = (page, size, sort) => {
   const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;

@@ -85,7 +85,7 @@ export const Customer = (props: ICustomerProps) => {
           &nbsp;
           <Translate contentKey="ncsInterviewApp.customer.home.createLabel">Create new Customer</Translate>
         </Link>
-        <Link to={`${match.url}/show`} className="btn btn-primary float-left jh-show-entity" id="jh-show-entity">
+        <Link to={`${match.url}/getUsersByYears`} className="btn btn-primary float-right jh-show-entity" id="jh-show-entity">
           
           <Translate contentKey="ncsInterviewApp.customer.home.showLabel">Show Customer By Year</Translate>
         </Link>
