@@ -1,0 +1,28 @@
+{
+  "ncsInterviewApp": {
+    "customerAccount": {
+      "home": {
+        "title": "Customer Accounts",
+        "createLabel": "Create a new Customer Account",
+        "createOrEditLabel": "Create or edit a Customer Account",
+        "notFound": "No Customer Accounts found"
+      },
+      "created": "A new Customer Account is created with identifier {{ param }}",
+      "updated": "A Customer Account is updated with identifier {{ param }}",
+      "deleted": "A Customer Account is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Customer Account {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer Account"
+      },
+      "accountNumber": "Account Number",
+      "accountType": "Account Type",
+      "fullDayBalance": "Full Day Balance",
+      "halfDayBalance": "Half Day Balance",
+      "finalBalance": "Final Balance",
+      "transactions": "Transactions",
+      "customerID": "Customer ID"
+    }
+  }
+}

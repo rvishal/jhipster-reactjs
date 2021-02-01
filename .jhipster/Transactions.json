@@ -1,0 +1,52 @@
+{
+  "name": "Transactions",
+  "fields": [
+    {
+      "fieldName": "transactionID",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "debitCredit",
+      "fieldType": "DebitCredit",
+      "fieldValues": "DEBIT,CREDIT"
+    },
+    {
+      "fieldName": "transactionAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "transactionType",
+      "fieldType": "TransactionType",
+      "fieldValues": "FAST_TRANSFER,INTERNAL,INTREST,SPEND,CHECK"
+    },
+    {
+      "fieldName": "valueDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "remarks",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "customerAccount",
+      "otherEntityRelationshipName": "transactions",
+      "javadoc": "Another side of the same relationship",
+      "relationshipName": "accountNumber",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210131084019",
+  "entityTableName": "transactions",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

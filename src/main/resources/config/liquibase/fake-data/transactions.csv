@@ -1,0 +1,11 @@
+id;transaction_id;debit_credit;transaction_amount;transaction_type;value_date;remarks
+1;85813;CREDIT;19785;INTERNAL;2021-01-31;Developer feed purple
+2;70819;DEBIT;29487;SPEND;2021-01-30;Liaison
+3;56384;DEBIT;38192;CHECK;2021-01-31;reboot solid state
+4;31664;CREDIT;11047;FAST_TRANSFER;2021-01-30;fresh-thinking Mountains
+5;18785;DEBIT;79164;FAST_TRANSFER;2021-01-31;Alabama sticky
+6;69047;DEBIT;44324;INTREST;2021-01-31;virtual Table
+7;1783;DEBIT;65693;FAST_TRANSFER;2021-01-31;networks
+8;43774;CREDIT;28628;FAST_TRANSFER;2021-01-30;seize Books
+9;91855;DEBIT;57941;FAST_TRANSFER;2021-01-30;Credit Card Account Bedfordshire
+10;98885;CREDIT;32033;INTERNAL;2021-01-30;secured line Home

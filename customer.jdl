@@ -1,0 +1,71 @@
+
+entity Customer {
+	CustomerId Integer ,
+    FirstName String required pattern(/^[A-Za-z]+$/),
+    MiddleName String required pattern(/^[A-Za-z]+$/),
+    LastName String required pattern(/^^[A-Za-z]+$/),
+    DateOfBirth LocalDate ,
+    EmailId String required pattern(/^[^@\s]+@[^@\s\.]+\.[^@\.\s]+$/),
+    PhoneNumber String required pattern(/^(\+\d{1,3}[- ]?)?\d{8,10}$/)
+    
+}
+
+entity CustomerAccount {
+	AccountNumber Integer,
+    AccountType AccountType,
+    FullDayBalance Double,
+    HalfDayBalance Double,
+    FinalBalance Double
+    
+    
+    
+}
+
+entity Transactions {
+	TransactionID Double ,
+    DebitCredit DebitCredit,
+    TransactionAmount Double,
+    TransactionType TransactionType ,
+    ValueDate LocalDate ,
+    Remarks String 
+    
+    
+    
+
+}
+
+enum TransactionType {
+	FAST_TRANSFER, INTERNAL, INTREST, SPEND , CHECK
+}
+enum DebitCredit {
+	DEBIT, CREDIT
+}
+enum AccountType {
+    SAVING, CURRENT, CHECKING, CREDITCARD
+}
+
+
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Customer to CustomerAccount{CustomerID},
+	/**
+	* A relationship
+	*/
+	CustomerAccount to
+	/**
+	* Another side of the same relationship
+	*/
+	Transactions{AccountNumber}
+}
+
+
+
+// Set pagination options
+paginate CustomerAccount, Customer with infinite-scroll
+paginate Transactions with pagination
+
+service all with serviceImpl
+
+

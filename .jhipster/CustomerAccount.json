@@ -1,0 +1,53 @@
+{
+  "name": "CustomerAccount",
+  "fields": [
+    {
+      "fieldName": "accountNumber",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "accountType",
+      "fieldType": "AccountType",
+      "fieldValues": "SAVING,CURRENT,CHECKING,CREDITCARD"
+    },
+    {
+      "fieldName": "fullDayBalance",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "halfDayBalance",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "finalBalance",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "transactions",
+      "otherEntityRelationshipName": "accountNumber",
+      "javadoc": "A relationship",
+      "relationshipName": "transactions"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "customerAccount",
+      "relationshipName": "customerID",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210131083919",
+  "entityTableName": "customer_account",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
