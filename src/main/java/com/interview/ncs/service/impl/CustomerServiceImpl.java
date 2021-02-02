@@ -57,11 +57,11 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.deleteById(id);
     }
     
-    public List<Map<String, Object>> getCustomerByYear() {
+    public List<Map<String, Integer>> getCustomerByYear() {
     	log.debug("Request to get all Customers by years");
-    	List<Map<String, Object>> customerByYearsList = customerRepository.getCustomerByYear();
+    	List<Map<String, Integer>> customerByYearsList = customerRepository.getCustomerByYear();
     	
-    	for (Map<String, Object> map : customerByYearsList) {
+    	for (Map<String, Integer> map : customerByYearsList) {
 			for (String map2 : map.keySet()) {
 				log.debug((">>>>>>>>>>" +map.get(map2)));
 			}

@@ -6,12 +6,13 @@ import {
   ICrudGetAllAction,
   ICrudPutAction,
   ICrudDeleteAction,
-} from 'react-jhipster';
+  } from 'react-jhipster';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
 import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
 
 import { ICustomer, defaultValue } from 'app/shared/model/customer.model';
+
 
 export const ACTION_TYPES = {
   FETCH_CUSTOMER_LIST: 'customer/FETCH_CUSTOMER_LIST',
@@ -19,8 +20,7 @@ export const ACTION_TYPES = {
   CREATE_CUSTOMER: 'customer/CREATE_CUSTOMER',
   UPDATE_CUSTOMER: 'customer/UPDATE_CUSTOMER',
   DELETE_CUSTOMER: 'customer/DELETE_CUSTOMER',
-  RESET: 'customer/RESET',
-  SHOW_CUSTOMER: 'customer/SHOW_CUSTOMER'
+  RESET: 'customer/RESET'
 };
 
 const initialState = {
@@ -34,7 +34,12 @@ const initialState = {
   updateSuccess: false,
 };
 
+
+
+
 export type CustomerState = Readonly<typeof initialState>;
+
+
 
 // Reducer
 
@@ -110,18 +115,13 @@ export default (state: CustomerState = initialState, action): CustomerState => {
   }
 };
 
+
+
 const apiUrl = 'api/customers';
 
 // Actions
 
-//	temp
-export const getUsersByYears = () => {
-  const requestUrl = `${apiUrl}/getUsersByYears`;
-  return {
-    type: ACTION_TYPES.SHOW_CUSTOMER,
-    payload: axios.get<ICustomer>(`${requestUrl}`),
-  };
-};
+
 
 export const getEntities: ICrudGetAllAction<ICustomer> = (page, size, sort) => {
   const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;

@@ -12,6 +12,8 @@ import { ICustomer } from 'app/shared/model/customer.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 
+import Logger from 'console-log-level';
+
 export interface ICustomerUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const CustomerUpdate = (props: ICustomerUpdateProps) => {

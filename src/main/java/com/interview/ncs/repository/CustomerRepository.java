@@ -16,5 +16,5 @@ import org.springframework.stereotype.Repository;
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 	
 	@Query(value = "SELECT EXTRACT(YEAR from c.dateOfBirth) as year,count(*) as count FROM Customer c GROUP BY  EXTRACT(YEAR from c.dateOfBirth) ")
-	public List<Map<String, Object>> getCustomerByYear();
+	public List<Map<String, Integer>> getCustomerByYear();
 }

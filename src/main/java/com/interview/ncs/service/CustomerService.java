@@ -47,5 +47,5 @@ public interface CustomerService {
     void delete(Long id);
     
     
-    public List<Map<String, Object>> getCustomerByYear();
+    public List<Map<String, Integer>> getCustomerByYear();
 }

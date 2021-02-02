@@ -16,6 +16,10 @@ import passwordReset, { PasswordResetState } from 'app/modules/account/password-
 import customer, {
   CustomerState
 } from 'app/entities/customer/customer.reducer';
+// 
+import customerAge ,{
+CustomerAgeState
+} from 'app/entities/customer/customer-yearage.reducer';
 // prettier-ignore
 import customerAccount, {
   CustomerAccountState
@@ -40,6 +44,7 @@ export interface IRootState {
   readonly customer: CustomerState;
   readonly customerAccount: CustomerAccountState;
   readonly transactions: TransactionsState;
+  readonly customerAge: CustomerAgeState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -58,6 +63,7 @@ const rootReducer = combineReducers<IRootState>({
   customer,
   customerAccount,
   transactions,
+  customerAge,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 });

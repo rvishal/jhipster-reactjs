@@ -135,7 +135,7 @@ public class CustomerResource {
     
     
     @GetMapping("/customers/getUsersByYears")
-    public  List<Map<String, Object>> getUsersByYears(){
+    public  List<Map<String, Integer>> getUsersByYears(){
     	
     	log.debug("Rest request to get data by years");
        	
