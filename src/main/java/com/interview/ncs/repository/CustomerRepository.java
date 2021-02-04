@@ -17,4 +17,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 	
 	@Query(value = "SELECT EXTRACT(YEAR from c.dateOfBirth) as year,count(*) as count FROM Customer c GROUP BY  EXTRACT(YEAR from c.dateOfBirth) ")
 	public List<Map<String, Integer>> getCustomerByYear();
+	
+	
+	public List<Customer> findByCustomerId(Integer customerId);
 }

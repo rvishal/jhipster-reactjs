@@ -1,11 +1,13 @@
 package com.interview.ncs.service;
 
+import com.interview.ncs.domain.Customer;
 import com.interview.ncs.domain.CustomerAccount;
 import com.interview.ncs.domain.Transactions;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -47,4 +49,11 @@ public interface CustomerAccountService {
     
 
     CustomerAccount updateBalances(Transactions transactions);
+    
+    
+    Optional<CustomerAccount> findByaccountNumberAndCustomerId(Integer accountNumber , Integer CustomerId);
+    
+    Optional<List<CustomerAccount>>  findByCustomerID(Integer customerID);
+    
+    
 }

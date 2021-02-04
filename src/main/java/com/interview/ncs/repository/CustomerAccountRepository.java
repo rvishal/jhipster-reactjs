@@ -1,9 +1,13 @@
 package com.interview.ncs.repository;
 
-import com.interview.ncs.domain.CustomerAccount;
+import java.util.List;
+import java.util.Optional;
 
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.interview.ncs.domain.Customer;
+import com.interview.ncs.domain.CustomerAccount;
 
 /**
  * Spring Data  repository for the CustomerAccount entity.
@@ -12,5 +16,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CustomerAccountRepository extends JpaRepository<CustomerAccount, Long> {
 
-	CustomerAccount findByaccountNumber(Integer accountNumber);
+	Optional<CustomerAccount> findByaccountNumberAndCustomerID(Integer accountNumber, Customer customerID);
+	
+	Optional<List<CustomerAccount>> findByCustomerID(Customer customerID);
 }

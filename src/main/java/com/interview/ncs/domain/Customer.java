@@ -57,7 +57,7 @@ public class Customer implements Serializable {
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "customerID")
+    @OneToMany(mappedBy = "customerID" )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<CustomerAccount> customerAccounts = new HashSet<>();
 

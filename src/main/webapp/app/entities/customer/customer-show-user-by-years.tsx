@@ -74,19 +74,19 @@ export const CustomerShowUserByYears = (props: ICustomerShowUserByYearsProps) =>
      
 
       const basicData =  {
-        
+        type : 'Age By Years' ,
         labels: label1,
         datasets: [
             {
                 label: 'No of Accounts',
                 backgroundColor: '#42A5F5',
-                data: data1
+                data: data1 
             }
-        ]
+        ] 
     };
-
-        const getLightTheme = () => {
-            const basicOptions = {
+            const getLightTheme = () => {
+           
+                const basicOptions = {
                 legend: {
                     labels: {
                         fontColor: '#495057'
@@ -100,8 +100,11 @@ export const CustomerShowUserByYears = (props: ICustomerShowUserByYearsProps) =>
                     }],
                     yAxes: [{
                         ticks: {
-                            fontColor: '#495057'
-                        }
+                            fontColor: '#495057',
+                            beginAtZero: true ,
+                            precision:0
+                        }    
+                        
                     }]
                 }
             };

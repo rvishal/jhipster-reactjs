@@ -1,21 +1,24 @@
 package com.interview.ncs.service.impl;
 
-import com.interview.ncs.service.CustomerAccountService;
-import com.interview.ncs.domain.CustomerAccount;
-import com.interview.ncs.domain.Transactions;
-import com.interview.ncs.domain.enumeration.DebitCredit;
-import com.interview.ncs.domain.enumeration.TransactionType;
-import com.interview.ncs.repository.CustomerAccountRepository;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.util.Optional;
+import com.interview.ncs.domain.Customer;
+import com.interview.ncs.domain.CustomerAccount;
+import com.interview.ncs.domain.Transactions;
+import com.interview.ncs.domain.enumeration.DebitCredit;
+import com.interview.ncs.domain.enumeration.TransactionType;
+import com.interview.ncs.repository.CustomerAccountRepository;
+import com.interview.ncs.repository.CustomerRepository;
+import com.interview.ncs.service.CustomerAccountService;
 
 /**
  * Service Implementation for managing {@link CustomerAccount}.
@@ -27,9 +30,12 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
     private final Logger log = LoggerFactory.getLogger(CustomerAccountServiceImpl.class);
 
     private final CustomerAccountRepository customerAccountRepository;
+    
+    private final CustomerRepository customerRepository;
 
-    public CustomerAccountServiceImpl(CustomerAccountRepository customerAccountRepository) {
+    public CustomerAccountServiceImpl(CustomerAccountRepository customerAccountRepository,CustomerRepository customerRepository) {
         this.customerAccountRepository = customerAccountRepository;
+        this.customerRepository = customerRepository;
     }
 
     @Override
@@ -110,5 +116,17 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
 		
 		
 		return customerAccountRepository.save(ca);
+	}
+
+	@Override
+	public Optional<CustomerAccount>  findByaccountNumberAndCustomerId(Integer accountNumber, Integer customerID) {
+		Customer customer = customerRepository.getOne(Long.valueOf(customerID));
+		return customerAccountRepository.findByaccountNumberAndCustomerID(accountNumber, customer);
+	}
+
+	@Override
+	public Optional<List<CustomerAccount>>  findByCustomerID(Integer customerID) {
+		Customer customer = customerRepository.getOne(Long.valueOf(customerID));
+		return customerAccountRepository.findByCustomerID(customer);
 	}
 }

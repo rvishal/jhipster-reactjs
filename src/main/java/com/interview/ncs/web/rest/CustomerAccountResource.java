@@ -122,4 +122,21 @@ public class CustomerAccountResource {
         customerAccountService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
+    
+    @GetMapping("/customer-accounts/customer/{customerId}/account/{accountNumber}")
+    public ResponseEntity<CustomerAccount> findByaccountNumberAndCustomerId(@PathVariable(name = "customerId") Integer customerId , @PathVariable(name = "accountNumber") Integer accountNumber){
+    	 log.debug("REST request to get findByaccountNumberAndCustomerId : {}", customerId,accountNumber);
+    	 Optional<CustomerAccount> customerAccount = customerAccountService.findByaccountNumberAndCustomerId(accountNumber, customerId);
+    	 
+    	  return ResponseUtil.wrapOrNotFound(customerAccount);
+    }
+    
+    @GetMapping("/customer-accounts/customer/{customerId}")
+    public ResponseEntity<List<CustomerAccount>> findByCustomerID(@PathVariable(name = "customerId") Integer customerId){
+    	
+    	List<CustomerAccount> result = customerAccountService.findByCustomerID(customerId).orElse(null);
+    	 return ResponseEntity.ok()
+    	            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, customerId.toString()))
+    	            .body(result);
+    }
 }
