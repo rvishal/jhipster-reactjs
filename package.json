@@ -17,7 +17,7 @@
     "chart.js": "^2.9.4",
     "console-log-level": "^1.4.1",
     "loaders.css": "0.1.2",
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "moment": "2.29.4",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
